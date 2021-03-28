@@ -1,0 +1,11 @@
+<div>
+    <label for="name-box">naam:</label>
+    <input #searchBox id="name-box"  />
+
+</div>
+
+<div>
+    <label for="amount-box">inleg: </label>
+    <input currencyMask formControlName="value" [options]="{ prefix: '€ ', thousands: '.', decimal: ',', align: 'left', allowNegative: false}"/>
+</div>
+

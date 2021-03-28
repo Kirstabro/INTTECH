@@ -4,15 +4,22 @@ import { NgxCurrencyModule } from 'ngx-currency';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
+import { OptionsComponent } from './options/options.component';
+
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NgxCurrencyModule
+    UserComponent,
+    OptionsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    NgxCurrencyModule,
+    AppRoutingModule,
+    ButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
