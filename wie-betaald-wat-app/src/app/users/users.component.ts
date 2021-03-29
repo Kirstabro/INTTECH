@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
   getUsers(): void {
     this.inputService.getUsers()
       .subscribe(users => {
-        this.users = users
+        this.users = users,
         this.calculateTotal();
       });
   }
@@ -39,3 +39,4 @@ export class UsersComponent implements OnInit {
     this.totalAmount = temp;
   }
 }
+

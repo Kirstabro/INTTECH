@@ -11,4 +11,5 @@ export class EventhandlerService {
   emitEvent(){
     this.$reload.emit();
   }
+
 }

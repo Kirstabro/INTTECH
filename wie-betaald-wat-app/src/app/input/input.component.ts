@@ -12,9 +12,9 @@ import { EventhandlerService } from '../services/eventhandler.service'
 export class InputComponent implements OnInit {
   user?: Person = {
     id: null,
-    name: "",
+    name: undefined,
     value: undefined,
-    item: ""
+    item: undefined
   };
 
   users: Person[] = [];
@@ -24,6 +24,8 @@ export class InputComponent implements OnInit {
     private eventHandler: EventhandlerService) { }
 
   addUser(): void {
+    if (!this.user.name)
+    {return;}
     this.inputService.addUser(this.user as Person)
         .subscribe(data => this.eventHandler.emitEvent());
   }
@@ -41,3 +43,4 @@ export class InputComponent implements OnInit {
     this.getUsers();
   }
 }
+
