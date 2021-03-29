@@ -1,4 +1,6 @@
 export interface Person {
-    name: string;
-    value : number;
+    id: number,
+    name: string,
+    value : number,
+    item: string;
 }

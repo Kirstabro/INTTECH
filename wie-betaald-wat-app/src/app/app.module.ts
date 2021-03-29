@@ -4,22 +4,35 @@ import { NgxCurrencyModule } from 'ngx-currency';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { OptionsComponent } from './options/options.component';
-
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDatabaseService } from './services/in-memory-database.service';
+import { InputComponent } from './input/input.component';
+import { UsersComponent } from './users/users.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    OptionsComponent
+    InputComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     NgxCurrencyModule,
     AppRoutingModule,
-    ButtonsModule.forRoot()
+    FormsModule,
+    ButtonsModule.forRoot(),
+    HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDatabaseService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
