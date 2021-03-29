@@ -1,0 +1,6 @@
+<h2>Allemaal totaal</h2>
+<ul class="users">
+  <li *ngFor="let user of users">
+    <span class="badge">{{user.name}} heeft €{{user.value | number:'.2'}} totaal betaald </span> 
+  </li>
+</ul>

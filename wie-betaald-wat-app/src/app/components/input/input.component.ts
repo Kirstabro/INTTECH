@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../person' ;
-import { InputService } from '../services/input.service';
-import { EventhandlerService } from '../services/eventhandler.service'
+import { Person } from '../../models/person' ;
+import { HttpService } from '../../services/http.service';
+import { EventhandlerService } from '../../services/eventhandler.service'
 
 @Component({
   selector: 'app-input',
@@ -20,22 +20,22 @@ export class InputComponent implements OnInit {
   users: Person[] = [];
 
   constructor(
-    private inputService: InputService,
+    private HttpService: HttpService,
     private eventHandler: EventhandlerService) { }
 
   addUser(): void {
     if (!this.user.name)
     {return;}
-    this.inputService.addUser(this.user as Person)
-        .subscribe(data => this.eventHandler.emitEvent());
+    this.HttpService.addUser(this.user as Person)
+         .subscribe(data => this.eventHandler.emitEvent());
   }
 
   calculate(): void {
-    //TODO : verreken alles
+     this.eventHandler.emitCalculateEvent();
   }
 
   getUsers(): void {
-    this.inputService.getUsers()
+    this.HttpService.getUsers()
         .subscribe(users => this.users = users);
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Person } from '../person' ;
+import { Person } from '../models/person' ;
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,8 @@ import { Person } from '../person' ;
 export class InMemoryDatabaseService implements InMemoryDatabaseService {
   createDb() {
     const users = [
-      {name: 'Kirsten', value: 10.50, item: "bier"}
+      {name: 'Kirsten', value: 10.50, item: "bier"},
+      {name: 'Bano', value: 4.50, item:'jonko'}
     ];
 
     return {users}};

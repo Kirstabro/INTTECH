@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Person } from '../person';
-import { InputService } from '../services/input.service';
-import { EventhandlerService } from '../services/eventhandler.service'
+import { Person } from '../../models/person';
+import { HttpService } from '../../services/http.service';
+import { EventhandlerService } from '../../services/eventhandler.service'
 
 @Component({
   selector: 'app-users',
@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
 
   totalAmount: number;
 
-  constructor(private inputService: InputService,
+  constructor(private HttpService: HttpService,
     private eventHandler: EventhandlerService) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.inputService.getUsers()
+    this.HttpService.getUsers()
       .subscribe(users => {
         this.users = users,
         this.calculateTotal();

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Person } from '../person';
+import { Person } from '../models/person';
 
 import {Observable, of } from 'rxjs'; 
 import {catchError, map } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import {catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class InputService {
+export class HttpService {
 
   private usersUrl = 'api/users';
 
@@ -21,6 +21,7 @@ export class InputService {
   constructor(
     private http: HttpClient ) { }
 
+    /* GET: return all users */
   getUsers(): Observable<Person[]> {
     return this.http.get<Person[]>(this.usersUrl).pipe(
       catchError(this.handleError<Person[]>('getUsers', []))
@@ -36,10 +37,13 @@ export class InputService {
 
    /*PUT: update existing user */
    updateUser(user: Person): Observable<any> {
-     console.log("PUT");
+     console.log("PUT", user);
     return this.http.put<Person>(this.usersUrl, user, this.httpOptions).pipe(
       catchError(this.handleError<any>('udpatePerson')));
   }
+
+  
+  
 
   private handleError<T>(operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {

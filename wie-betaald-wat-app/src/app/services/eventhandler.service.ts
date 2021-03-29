@@ -1,3 +1,4 @@
+import { EventHandlerVars } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
@@ -5,6 +6,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class EventhandlerService {
   $reload = new EventEmitter();
+  $calculate = new EventEmitter();
 
   constructor() { }
 
@@ -12,4 +14,7 @@ export class EventhandlerService {
     this.$reload.emit();
   }
 
+  emitCalculateEvent(){
+    this.$calculate.emit();
+  }
 }
