@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Person} from '../person';
+import { Person } from '../person';
 import { InputService } from '../services/input.service';
 import { EventhandlerService } from '../services/eventhandler.service'
 
@@ -13,6 +13,8 @@ import { EventhandlerService } from '../services/eventhandler.service'
 export class UsersComponent implements OnInit {
   users?: Person[];
 
+  totalAmount: number;
+
   constructor(private inputService: InputService,
     private eventHandler: EventhandlerService) { }
 
@@ -23,6 +25,17 @@ export class UsersComponent implements OnInit {
 
   getUsers(): void {
     this.inputService.getUsers()
-    .subscribe(users => this.users = users);
+      .subscribe(users => {
+        this.users = users
+        this.calculateTotal();
+      });
+  }
+
+  calculateTotal(): void {
+    let temp: number = 0;
+    this.users.map(user => {
+      temp += +user.value;
+    });
+    this.totalAmount = temp;
   }
 }
