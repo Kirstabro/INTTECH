@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from 'src/app/models/transaction';
+import { Payment, Transaction } from 'src/app/models/person';
 import { AlgorithmService } from 'src/app/services/algorithm.service';
 import { EventhandlerService } from 'src/app/services/eventhandler.service';
 import { HttpService } from 'src/app/services/http.service';
@@ -12,32 +12,34 @@ import { HttpService } from 'src/app/services/http.service';
 export class OutputComponent implements OnInit {
 
   constructor(
-    private eventHandler: EventhandlerService,
-    private httpService: HttpService,
+    private eventHandler    : EventhandlerService,
+    private httpService     : HttpService,
     private algorithmService: AlgorithmService) { }
 
   users: Transaction[] = [];
-  totalamount: number;
+  payments: Payment[] = [];
 
-  
   ngOnInit(): void {
-    //this.getUsers();
+    this.getUsers();
     this.eventHandler.$calculate.subscribe(data => this.getUsers());
   }
 
   calculate(): void {
-    this.algorithmService.calculate(this.users, this.totalamount);
+    this.payments = this.algorithmService.calculate(this.users, this.calculateTotal());
   }
 
-  calculateTotat(): void{
+  calculateTotal(): number{
     let temp: number = 0;
     this.users.map(user => {
+      console.log('user', user);
       temp += +user.value;
     });
-    this.totalamount = temp;
+
+    return temp;
   }
 
-  getUsers(): void {
+  getUsers(): void 
+  {
     this.users = [];
     
     console.log("GETUSERS()");
@@ -67,7 +69,8 @@ export class OutputComponent implements OnInit {
           exists = false;
         }
       })
+      console.log(this.users);
+      this.calculate();
     })
   }
-
 }

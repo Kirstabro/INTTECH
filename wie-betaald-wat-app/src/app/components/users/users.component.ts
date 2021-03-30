@@ -23,6 +23,10 @@ export class UsersComponent implements OnInit {
     this.eventHandler.$reload.subscribe(data => this.getUsers());
   }
 
+  calculate(): void {
+    this.eventHandler.emitCalculateEvent();
+ }
+
   getUsers(): void {
     this.HttpService.getUsers()
       .subscribe(users => {

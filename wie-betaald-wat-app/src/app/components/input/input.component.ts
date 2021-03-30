@@ -30,10 +30,7 @@ export class InputComponent implements OnInit {
          .subscribe(data => this.eventHandler.emitEvent());
   }
 
-  calculate(): void {
-     this.eventHandler.emitCalculateEvent();
-  }
-
+  
   getUsers(): void {
     this.HttpService.getUsers()
         .subscribe(users => this.users = users);
