@@ -1,0 +1,13 @@
+<h2>Allemaal totaal</h2>
+<ul class="users">
+  <li *ngFor="let user of users">
+    <span class="badge">{{user.name}} heeft €{{user.value | number:'.2'}} totaal betaald </span> 
+  </li>
+</ul>
+
+<h2>Betaalverzoekjes</h2>
+<ul class="payments">
+  <li *ngFor="let payment of payments">
+    <span >{{payment.payer}} moet €{{payment.value | number:'.2'}} betalen aan {{payment.receiver}} </span> 
+  </li>
+</ul>

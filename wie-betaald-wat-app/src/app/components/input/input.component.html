@@ -1,0 +1,16 @@
+<div>
+        <label for="name-box">naam: </label>
+        <input  #searchBox id="name-box" [(ngModel)]="user.name"/>
+</div> 
+        <label for="amount-box">inleg: </label>
+        <input id="amount-box" [(ngModel)]="user.value" currencyMask [options]="{ prefix: '€ ', thousands: '.', decimal: ',', align: 'left', allowNegative: false}" />
+<div>
+        <label for="item-box">item: </label>
+        <input #searchBox id="item-box" [(ngModel)]="user.item"/>
+</div>
+<div>
+        <button (click)="addUser()" type="button" class="btn btn-primary"> 
+            Toevoegen
+        </button>
+       
+</div>     
