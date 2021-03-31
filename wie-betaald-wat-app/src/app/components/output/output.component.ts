@@ -25,7 +25,7 @@ export class OutputComponent implements OnInit {
   }
 
   calculate(): void {
-    this.payments = this.algorithmService.calculate(this.users, this.calculateTotal());
+     this.payments = this.algorithmService.calculate(this.users, this.calculateTotal());
   }
 
   calculateTotal(): number{

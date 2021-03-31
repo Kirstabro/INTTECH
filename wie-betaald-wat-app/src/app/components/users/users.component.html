@@ -1,7 +1,7 @@
 <h2>Totaal</h2>
 <ul class="users">
   <li *ngFor="let user of users">
-    <span class="badge">{{user.name}} heeft </span> €{{user.value | number:'.2'}} betaald voor {{user.item}}
+    <span class="badge">{{user.name}} heeft </span> €{{user.value | number:'.2'}} betaald voor {{user.item}} 
   </li>
 </ul>
 <h3>Totaal is €{{totalAmount | number:'.2'}}</h3>

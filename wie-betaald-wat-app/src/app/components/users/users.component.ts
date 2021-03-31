@@ -42,5 +42,6 @@ export class UsersComponent implements OnInit {
     });
     this.totalAmount = temp;
   }
+
 }
 

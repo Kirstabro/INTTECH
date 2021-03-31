@@ -1,4 +1,3 @@
-import { EventHandlerVars } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({

@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Person } from '../models/person';
 
 import {Observable, of } from 'rxjs'; 
-import {catchError, map } from 'rxjs/operators';
+import {catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -42,9 +42,6 @@ export class HttpService {
       catchError(this.handleError<any>('udpatePerson')));
   }
 
-  
-  
-
   private handleError<T>(operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
         // TODO: send the error to remote logging infrastructure
@@ -54,4 +51,5 @@ export class HttpService {
         return of(result as T);
       };
     }
+
 }

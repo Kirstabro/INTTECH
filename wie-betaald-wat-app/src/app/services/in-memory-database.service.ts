@@ -9,7 +9,7 @@ export class InMemoryDatabaseService implements InMemoryDatabaseService {
   createDb() {
     const users = [
       {name: 'Kirsten', value: 10.50, item: "bier"},
-      {name: 'Bano', value: 4.50, item:'jonko'}
+      {name: 'Bano', value: 5.50, item:'bitterballen'}
     ];
 
     return {users}};

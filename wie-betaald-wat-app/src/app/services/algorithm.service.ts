@@ -43,8 +43,6 @@ export class AlgorithmService {
       }
     });
 
-    
-
     recievers.sort((a,b) => a.value - b.value);
     payers.sort((a,b) => a.value - b.value);
 
@@ -79,5 +77,7 @@ export class AlgorithmService {
     console.log("Payments: ", this.payments);
     return this.payments;
   }
+
+  
 }
 

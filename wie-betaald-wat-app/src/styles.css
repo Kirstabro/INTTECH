@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+h1 {
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    background-color:rgb(65, 82, 37) ;
+    font-size: 230%;
+    font-weight: bold;
+    padding-left: 1em;
+  }
+  h2, h3 {
+    color: #444;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+  }
+  body {
+    margin: 2em;
+  }
+  body, input[type="text"] {
+    color: #333;
+    font-family: Cambria, Georgia, serif;
+    margin-top: 1em;
+  }
+  button {
+      color: whitesmoke;
+      background-color: rgb(90, 107, 92);
+      margin-top:0ch;
+  }
+  /* everywhere else */
+  * {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 110%;
+  }

@@ -8,6 +8,6 @@
 <h2>Betaalverzoekjes</h2>
 <ul class="payments">
   <li *ngFor="let payment of payments">
-    <span >{{payment.payer}} moet €{{payment.value | number:'.2'}} betalen aan {{payment.receiver}} </span> 
+    <div >{{payment.payer}} moet € {{payment.value | number:'.2'}} betalen aan {{payment.receiver}} </div> 
   </li>
 </ul>
